@@ -79,7 +79,7 @@ Gs = TF[5/(s^2 + s + 5)];
 PlotStepResponse[Gs, 15]
 ```
 
-![Untitled](My%20Control%20Library%20for%20Mathematica%20b2e7b5f44bd440f2ae418f9ef75bddde/Untitled.png)
+![Untitled](Untitled.png)
 
 ```mathematica
 TF[model_] := TransferFunctionModel[model, s];
@@ -87,4 +87,4 @@ Gs = TF[5/(s^2 + s + 5)];
 PlotStepResponse[Gs]
 ```
 
-![Untitled](My%20Control%20Library%20for%20Mathematica%20b2e7b5f44bd440f2ae418f9ef75bddde/Untitled%201.png)
+![Untitled](Untitled1.png)
