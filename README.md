@@ -137,7 +137,7 @@ Poles are marked with an "X" and zeros with an "O", both in red for clear visibi
 
 To use `PZMap` for a specific transfer function, simply call the function with the transfer function as its argument:
 
-```markdown
+
 ```mathematica
 PZMap[((s + 5) (s + 7) s (s + 9) (s + 10) (s + 15) (s^2 + 5 s + 8)) /
       ((s^2 + s + 7) (s + 2)^2 (s + 2.04) (s + 8) (s - 8) (s^2 + 5 - 3.8 s))]
@@ -147,6 +147,5 @@ This call will generate a pole-zero map for the provided transfer function, aidi
 
 ---
 
-When using this in a Markdown environment, ensure that the code blocks are correctly formatted with triple backticks (\`\`\`) as shown.
 
 
