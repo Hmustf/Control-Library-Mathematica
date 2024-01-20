@@ -88,3 +88,65 @@ PlotStepResponse[Gs]
 ```
 
 ![Untitled](Untitled1.png)
+
+
+```mathematica
+PZMap[Gs_] := Module[
+  {p, z, pcor, zcor, pplot, zplot, tfModel},
+
+  (* Construct the transfer function model *)
+  tfModel = TransferFunctionModel[Gs, s];
+
+  (* Extract poles and zeros *)
+  p = TransferFunctionPoles[tfModel];
+  z = TransferFunctionZeros[tfModel];
+
+  (* Display zeros and poles *)
+  Print["Transfer Function Zeros are: ", Row[Flatten[z], ", "]];
+  Print["Transfer Function Poles are: ", Row[Flatten[p], ", "]];
+
+  (* Compute coordinates for poles and zeros *)
+  pcor = Transpose[{Re[p], Im[p]}] // Flatten /@ # &;
+  zcor = Transpose[{Re[z], Im[z]}] // Flatten /@ # &;
+
+  (* Create plots for poles and zeros *)
+  pplot = ListPlot[pcor, PlotMarkers -> {"X"}, PlotStyle -> Red, PlotLabel -> "Poles"];
+  zplot = ListPlot[zcor, PlotMarkers -> {"O"}, PlotStyle -> Blue, PlotLabel -> "Zeros"];
+
+  (* Combine plots and add labels *)
+  Show[pplot, zplot,
+    PlotRange -> All,
+    GridLines -> Automatic,
+    AxesOrigin -> {0, 0},
+    AxesLabel -> {"Re(s)", "Im(s)"},
+    ImageSize -> Medium,
+    Frame -> True,
+    FrameLabel -> {"Real Axis", "Imaginary Axis"},
+    PlotLabel -> "Pole-Zero Map"
+  ]
+]
+
+
+### Description:
+
+This function `PZMap` is designed to graphically represent the pole-zero map of a given transfer function in the s-domain. The function accepts a transfer function `Gs` as input. It calculates the poles and zeros of the transfer function and displays them on a 2D plot, where the real and imaginary parts of the poles and zeros are plotted on the x-axis (Re(s)) and y-axis (Im(s)), respectively.
+
+Poles are marked with an "X" and zeros with an "O", both in red for clear visibility. The plot includes grid lines for reference and is labeled appropriately, including a frame for enhanced readability. This visual representation is crucial for analyzing the stability and frequency response characteristics of control systems.
+
+### Example Usage:
+
+To use `PZMap` for a specific transfer function, simply call the function with the transfer function as its argument:
+
+```markdown
+```mathematica
+PZMap[((s + 5) (s + 7) s (s + 9) (s + 10) (s + 15) (s^2 + 5 s + 8)) /
+      ((s^2 + s + 7) (s + 2)^2 (s + 2.04) (s + 8) (s - 8) (s^2 + 5 - 3.8 s))]
+
+
+This call will generate a pole-zero map for the provided transfer function, aiding in the analysis of the system's characteristics.
+
+---
+
+When using this in a Markdown environment, ensure that the code blocks are correctly formatted with triple backticks (\`\`\`) as shown.
+
+
