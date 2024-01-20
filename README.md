@@ -125,7 +125,7 @@ PZMap[Gs_] := Module[
     PlotLabel -> "Pole-Zero Map"
   ]
 ]
-
+```
 
 ### Description:
 
@@ -141,7 +141,7 @@ To use `PZMap` for a specific transfer function, simply call the function with t
 ```mathematica
 PZMap[((s + 5) (s + 7) s (s + 9) (s + 10) (s + 15) (s^2 + 5 s + 8)) /
       ((s^2 + s + 7) (s + 2)^2 (s + 2.04) (s + 8) (s - 8) (s^2 + 5 - 3.8 s))]
-
+```
 
 This call will generate a pole-zero map for the provided transfer function, aiding in the analysis of the system's characteristics.
 
