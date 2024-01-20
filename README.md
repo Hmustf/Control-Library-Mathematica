@@ -1,4 +1,4 @@
-# My Control Library for Mathematica
+# Control Systems Tutorials using Mathematica
 
 ## ****Function Description****
 
